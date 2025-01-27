@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudFail Results - ${TARGET}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header {
+            border-bottom: 2px solid #eee;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+        h1 {
+            color: #2c3e50;
+            margin: 0 0 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .success h1 {
+            color: #27ae60;
+        }
+        .failed h1 {
+            color: #c0392b;
+        }
+        .meta {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>CloudFail Results - ${TARGET}</h1>
+            <p class="meta">Generated: ${DATE}</p>
+        </div>
+        <div class="success">
+            <h1>Targets Found</h1>
+            <table>
+                <tr>
+                    <th>IP</th>
+                    <th>Domain</th>
+                    <th>Type</th>
+                </tr>
+                ${SUCCESS_ROWS}
+            </table>
+        </div>
+        <div class="failed">
+            <h1>Failed Attempts</h1>
+            <table>
+                <tr>
+                    <th>IP</th>
+                    <th>Domain</th>
+                    <th>Type</th>
+                </tr>
+                ${FAILED_ROWS}
+            </table>
+        </div>
+    </div>
+</body>
+</html>
